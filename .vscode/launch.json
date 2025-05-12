@@ -51,6 +51,16 @@
             "projectName": "basic-web-app",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-WebAppProject2Application<web-app-project2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.learnspringmvc2.web_app_project2.WebAppProject2Application",
+            "projectName": "web-app-project2",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
