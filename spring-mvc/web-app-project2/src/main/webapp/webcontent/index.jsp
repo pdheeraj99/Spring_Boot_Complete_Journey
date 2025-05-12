@@ -3,10 +3,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>My Learning</title>
+    <title>Query Param Learning</title>
 </head>
 <body>
-    <h1> ${ greet } ${ meet }</h1>
+    <h1> ${ info } </h1>
     
 </body>
 </html>
