@@ -17,11 +17,25 @@ public class QueryParamController {
     }
 
     // Example URL: http://localhost:8484/GreetingApp/info1?nam=Dheeraj
-    // Handles GET request to /info1 with required query parameter 'nam'
-    // @RequestParam maps query parameter 'nam' to method argument 'name'
+    // 1. Handles GET request to /info1 with required query parameter 'nam'
+    // 2. @RequestParam maps query parameter 'nam' to method argument 'name'
+    // 3. @RequestParam - Not Compulsory. Used only when query parameter and method
+    // argument diff
     @GetMapping("/info1")
     public String displayMessage1(@RequestParam("nam") String name, Model model) {
         model.addAttribute("info", "Hello! " + name + " Welcome to my Personal Learning");
+        return "index";
+    }
+
+    // Example URL:
+    // http://localhost:8484/GreetingApp/info1?nam=Dheeraj&course='Spring'
+    // 1. Handles GET request to /info1 with required query parameter 'nam'
+    // 2. @RequestParam maps query parameter 'nam' to method argument 'name'
+    // 3. @RequestParam - Not Compulsory. Used only when query parameter and method
+    // argument diff
+    @GetMapping("/info2")
+    public String displayMessage2(@RequestParam("nam") String name, String course, Model model) {
+        model.addAttribute("info", "Hello! " + name + " Welcome to my Personal Learning of " + course);
         return "index";
     }
 
