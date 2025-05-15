@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "WebAppProject3Application",
+            "request": "launch",
+            "mainClass": "com.learnspringmvc2.web_app_project3.WebAppProject3Application",
+            "projectName": "web-app-project3"
+        },
+        {
+            "type": "java",
             "name": "WebAppProject5Application",
             "request": "launch",
             "mainClass": "com.example.WebAppProject5.WebAppProject5Application",
@@ -59,6 +66,26 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.learnspringmvc2.web_app_project2.WebAppProject2Application",
             "projectName": "web-app-project2",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-WebAppProject2Application<web-app-project3>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.learnspringmvc2.web_app_project2.WebAppProject2Application",
+            "projectName": "web-app-project3",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-WebAppProject3Application<web-app-project3>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.learnspringmvc3.web_app_project3.WebAppProject3Application",
+            "projectName": "web-app-project3",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
