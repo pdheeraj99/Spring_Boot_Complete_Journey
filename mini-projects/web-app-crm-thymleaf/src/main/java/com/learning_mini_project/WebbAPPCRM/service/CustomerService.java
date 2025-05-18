@@ -39,7 +39,6 @@ public class CustomerService implements ICustomerService {
 
 	@Override
 	public void deleteCxRecord(Integer id) {
-		// TODO Auto-generated method stub
 		repo.deleteById(id);
 	}
 
