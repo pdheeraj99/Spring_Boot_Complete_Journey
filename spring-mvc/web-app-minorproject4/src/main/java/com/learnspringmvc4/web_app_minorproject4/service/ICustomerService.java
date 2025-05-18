@@ -12,4 +12,6 @@ public interface ICustomerService {
 
     Customer fetchCustomerById(Integer id);
 
+    void deleteCxRecord(Integer id);
+
 }

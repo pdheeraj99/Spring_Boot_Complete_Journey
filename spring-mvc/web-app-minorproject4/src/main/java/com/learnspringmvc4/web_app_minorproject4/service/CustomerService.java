@@ -48,4 +48,9 @@ public class CustomerService implements ICustomerService {
         // Use ifpresent, orElse, orElseThrow for optional to get better code
     }
 
+    @Override
+    public void deleteCxRecord(Integer id) {
+        repo.deleteById(id);
+    }
+
 }
