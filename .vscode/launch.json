@@ -88,6 +88,16 @@
             "projectName": "web-app-project3",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RestApiProject1Application<rest_api_project1>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.restful_services.rest_api_project1.RestApiProject1Application",
+            "projectName": "rest_api_project1",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
