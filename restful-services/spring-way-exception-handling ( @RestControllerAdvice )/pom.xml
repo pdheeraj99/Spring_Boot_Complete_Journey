@@ -6,14 +6,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.5</version>
+		<version>3.5.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.restful_services</groupId>
-	<artifactId>learn_profiles</artifactId>
+	<groupId>com.projects</groupId>
+	<artifactId>spring-way-exception-handling</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>learn_profiles</name>
-	<description>Spring Boot Profiles</description>
+	<name>spring-way-exception-handling</name>
+	<description>Spring Boot Global Exception Handling</description>
 	<url />
 	<licenses>
 		<license />
@@ -33,6 +33,10 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
@@ -41,6 +45,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
