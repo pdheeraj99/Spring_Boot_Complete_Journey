@@ -1,4 +1,4 @@
-package com.internalslearning.basicinternalsunderstanding;
+package com.internalslearning.basicinternalsunderstanding.inspectors;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.FilterRegistration;
@@ -68,7 +68,7 @@ public class ServletFilterInspector {
         Arrays.sort(beanNames); // Sort for readability
         for (String beanName : beanNames) {
             if (beanName.equals("servletFilterInspector")) {
-                System.out.println("Bean Name: " + beanName + ", Class: com.internalslearning.basicinternalsunderstanding.ServletFilterInspector (skipped due to self-reference)");
+                System.out.println("Bean Name: " + beanName + ", Class: com.internalslearning.basicinternalsunderstanding.inspectors.ServletFilterInspector (skipped due to self-reference)");
                 continue;
             }
             try {
