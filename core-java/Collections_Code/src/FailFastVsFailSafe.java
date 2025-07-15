@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class FailFastvsFailSafe {
+public class FailFastVsFailSafe {
 
     public static void main(String[] args) {
 
