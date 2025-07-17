@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+// NOTION: https://www.notion.so/Core-Java-230649c229fb806e8132c7ee10e3944d?source=copy_link
+
 public class FailFastVsFailSafe {
 
     public static void main(String[] args) {
