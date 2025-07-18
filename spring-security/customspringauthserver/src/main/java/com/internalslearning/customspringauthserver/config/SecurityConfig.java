@@ -4,6 +4,8 @@ import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.time.Duration;
+import java.util.List;
 import java.util.UUID;
 
 import com.nimbusds.jose.jwk.JWKSet;
@@ -33,6 +35,8 @@ import org.springframework.security.oauth2.server.authorization.config.annotatio
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
+import org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat;
+import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
@@ -109,27 +113,28 @@ public class SecurityConfig {
     // (username/password)
     // ready ga untundi. Production lo database nundi fetch cheyyali.
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails userDetails = User.withDefaultPasswordEncoder()
-                // => User.withDefaultPasswordEncoder(): Idi demo/testing kosam matrame. Ee
-                // method
-                // password ni {bcrypt} format lo store chestundi. Most importantly, ee method
-                // ippudu deprecated (ante, deenini vadanivvaru) endukante developers production
-                // code lo porapatuna kuda vadakudadu ani. Real projects lo, manam eppudu oka
-                // PasswordEncoder bean (for example, BCryptPasswordEncoder) ni create chesi,
-                // daanne use cheyyali.
-                .username("user")
-                .password("password")
-                .roles("USER")
-                .build();
+     @Bean
+     public UserDetailsService userDetailsService() {
+     UserDetails userDetails = User.withDefaultPasswordEncoder()
+     // => User.withDefaultPasswordEncoder(): Idi demo/testing kosam matrame. Ee
+     // method
+     // password ni {bcrypt} format lo store chestundi. Most importantly, ee method
+     // ippudu deprecated (ante, deenini vadanivvaru) endukante developer production
+     // code lo porapatuna kuda vadakudadu ani. Real projects lo, manam eppudu oka
+     // PasswordEncoder bean (for example, BCryptPasswordEncoder) ni create chesi,
+     // daanne use cheyyali.
+     .username("user")
+     .password("password")
+     .roles("USER")
+     .build();
 
-        return new InMemoryUserDetailsManager(userDetails);
-    }
+     return new InMemoryUserDetailsManager(userDetails);
+     }
 
     // => RegisteredClient: Mee authorization server ni vadadaniki register chesina
     // app
-    // (client) details.
+    // (client) details. ( eg: bookmyshow, some other app which use "login with
+    // google" )
     // => clientId/clientSecret: Client app ki unique id, secret (password laanti
     // di).
     // => authorizationGrantType: Ee client ki ye grant types support cheyyalo
@@ -146,20 +151,20 @@ public class SecurityConfig {
     // cheyyali.
     @Bean
     public RegisteredClientRepository registeredClientRepository() {
-        RegisteredClient oidcClient = RegisteredClient.withId(UUID.randomUUID().toString())
+        RegisteredClient clientCredClient = RegisteredClient.withId(UUID.randomUUID().toString())
                 .clientId("oidc-client")
                 .clientSecret("{noop}secret")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                .redirectUri("http://127.0.0.1:8080/login/oauth2/code/oidc-client")
-                .postLogoutRedirectUri("http://127.0.0.1:8080/")
-                .scope(OidcScopes.OPENID)
-                .scope(OidcScopes.PROFILE)
-                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
+                .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
+                .scopes(scopeConfig -> scopeConfig.addAll(List.of(OidcScopes.OPENID, "ADMIN", "USER")))
+                .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofMinutes(10)).accessTokenFormat(OAuth2TokenFormat.SELF_CONTAINED).build())
                 .build();
 
-        return new InMemoryRegisteredClientRepository(oidcClient);
+        // => InMemoryRegisteredClientRepository: As ours is small application so
+        // storing the clients in memory is enough
+        // => but when our application is big then we need to store in DB and fetch from
+        // there
+        return new InMemoryRegisteredClientRepository(clientCredClient);
     }
 
     // => JWKSource: JWT tokens sign cheyyadaniki, verify cheyyadaniki keys ni
