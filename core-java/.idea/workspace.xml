@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6a9e5b9e-7dd2-4863-98bb-870f0287e75e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../spring-security/spring-security-internals/src/main/java/com/internalslearning/springsecurityinternals/SpringSecurityInternalsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security/spring-security-internals/src/main/java/com/internalslearning/springsecurityinternals/SpringSecurityInternalsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-security/spring-security-internals/src/main/java/com/internalslearning/springsecurityinternals/filterchains/customSecurityFilterChain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-security/spring-security-internals/src/main/java/com/internalslearning/springsecurityinternals/filters/CustomAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-security/spring-security-internals/src/main/java/com/internalslearning/springsecurityinternals/filters/CustomHeaderFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-security/spring-security-internals/src/main/java/com/internalslearning/springsecurityinternals/filters/LoggingFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-security/spring-security-internals/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-security/spring-security-internals/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/.idea/dictionaries/project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Atomicity_Problem/RaceConditionProblem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Atomicity_Problem/SynchronizedSolution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Comparisions/ProblemsWithSolutions.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Comparisions/SynchronizedvsReEntrantLock.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Deadlock_Problem/DeadLockSolutionWithReEntrantTryLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Deadlock_Problem/DeadlockProblem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Deadlock_Problem/DeadlockSolutionWithLockOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Deadlock_Problem/DeadlockSolutionWithTryLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/EfficientThreadCommunication/ProducerConsumerSolutionUsingBlockingQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/EfficientThreadCommunication/ProducerConsumerSolutionUsingQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Memory_Visibility_Problem/StaleReadProblem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Memory_Visibility_Problem/VolatileSolution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Some_Miscellaneous/InvokeStatic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Some_Miscellaneous/InvokeVirtual.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Some_Miscellaneous/invokeDynamic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +30,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2zthUvfF6E2Wtz1qxGQvgWHdhIB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,8 +44,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Spring_Boot_Complete/core-java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -53,6 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1752556296151</updated>
       <workItem from="1752556297442" duration="38000" />
+      <workItem from="1752944875259" duration="603000" />
     </task>
     <servers />
   </component>
