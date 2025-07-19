@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a9e5b9e-7dd2-4863-98bb-870f0287e75e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/.idea/dictionaries/project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Atomicity_Problem/RaceConditionProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Atomicity_Problem/SynchronizedSolution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Comparisions/ProblemsWithSolutions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Comparisions/SynchronizedvsReEntrantLock.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Deadlock_Problem/DeadLockSolutionWithReEntrantTryLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Deadlock_Problem/DeadlockProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Deadlock_Problem/DeadlockSolutionWithLockOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Deadlock_Problem/DeadlockSolutionWithTryLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/EfficientThreadCommunication/ProducerConsumerSolutionUsingBlockingQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/EfficientThreadCommunication/ProducerConsumerSolutionUsingQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Memory_Visibility_Problem/StaleReadProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Memory_Visibility_Problem/VolatileSolution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Some_Miscellaneous/InvokeStatic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Some_Miscellaneous/InvokeVirtual.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../interview_specific_practise/src/Some_Miscellaneous/invokeDynamic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Arrays_Class/src/StreamPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Streams_Master_Class/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Streams_Master_Class/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Streams_Master_Class/src/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,23 +27,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Spring_Boot_Complete/core-java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Spring_Boot_Complete/core-java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -71,7 +60,8 @@
       <option name="presentableId" value="Default" />
       <updated>1752556296151</updated>
       <workItem from="1752556297442" duration="38000" />
-      <workItem from="1752944875259" duration="603000" />
+      <workItem from="1752944875259" duration="818000" />
+      <workItem from="1752945824923" duration="98000" />
     </task>
     <servers />
   </component>
