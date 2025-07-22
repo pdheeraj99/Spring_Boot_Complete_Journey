@@ -21,10 +21,10 @@ public class Class11_UltimateGroupingObjectsTogether {
 
         System.out.println("--- Grouping Employees by Department ---");
 
-        // The classifier function is Employee::dxepartment
+        // The classifier function is Employee::department
         // This tells groupingBy to use the department string as the key.
         Map<String, List<Employee>> employeesByDept = employees.stream()
-                .collect(Collectors.groupingBy(Employee::name));
+                .collect(Collectors.groupingBy(Employee::department));
 
         // Let's print the resulting map
         employeesByDept.forEach((department, empList) -> {
