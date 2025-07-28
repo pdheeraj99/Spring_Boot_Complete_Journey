@@ -42,14 +42,11 @@ public class RefreshTokenService {
         return refreshTokenRepository.findByToken(token);
     }
 
-    public RefreshToken verifyExpiration(RefreshToken token) {
+    public void verifyExpiration(RefreshToken token) {
         if (token.getExpiryDate().compareTo(Instant.now()) < 0) {
-            refreshTokenRepository.delete(token);
-            // throw new RuntimeException(token.getToken() + " Refresh token was expired. Please make a new signin request");
-
-            // Throw our new custom exception
+            // We will no longer delete the token here. We just throw the exception.
+            // refreshTokenRepository.delete(token);
             throw new RefreshTokenException(token.getToken(), "Refresh token was expired. Please make a new sign-in request.");
         }
-        return token;
     }
 }

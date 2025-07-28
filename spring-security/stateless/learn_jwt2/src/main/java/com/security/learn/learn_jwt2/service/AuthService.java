@@ -6,6 +6,7 @@ import com.security.learn.learn_jwt2.dto.RefreshTokenRequest;
 import com.security.learn.learn_jwt2.dto.RegisterRequest;
 import com.security.learn.learn_jwt2.entity.RefreshToken;
 import com.security.learn.learn_jwt2.enums.Role;
+import com.security.learn.learn_jwt2.exception.RefreshTokenException;
 import com.security.learn.learn_jwt2.repository.RefreshTokenRepository;
 import com.security.learn.learn_jwt2.repository.UserRepository;
 import com.security.learn.learn_jwt2.security.JwtService;
@@ -63,16 +64,30 @@ public class AuthService {
     }
 
     public AuthResponse refreshToken(RefreshTokenRequest request) {
-        return refreshTokenService.findByToken(request.getToken())
-                .map(refreshTokenService::verifyExpiration)
-                .map(RefreshToken::getUser)
-                .map(user -> {
-                    String accessToken = jwtService.generateToken(user);
-                    return AuthResponse.builder()
-                            .accessToken(accessToken)
-                            .refreshToken(request.getToken())
-                            .build();
-                }).orElseThrow(() -> new RuntimeException("Refresh token is not in database!"));
+        // 1. Find the old refresh token in the database
+        RefreshToken oldRefreshToken = refreshTokenService.findByToken(request.getToken())
+                .orElseThrow(() -> new RefreshTokenException(request.getToken(), "Refresh token not found!"));
+
+        // 2. Verify if the old token has expired
+        refreshTokenService.verifyExpiration(oldRefreshToken);
+
+        // 3. Get the user associated with the token
+        User user = oldRefreshToken.getUser();
+
+        // 4. IMPORTANT: Delete the old refresh token
+        refreshTokenRepository.delete(oldRefreshToken);
+
+        // 5. Generate a new access token
+        String newAccessToken = jwtService.generateToken(user);
+
+        // 6. Generate a new refresh token
+        RefreshToken newRefreshToken = refreshTokenService.createRefreshToken(user.getUsername());
+
+        // 7. Return both new tokens to the user
+        return AuthResponse.builder()
+                .accessToken(newAccessToken)
+                .refreshToken(newRefreshToken.getToken())
+                .build();
     }
 
     public String logout(RefreshTokenRequest request) {
