@@ -2,6 +2,7 @@ package com.security.learn.learn_jwt2.security;
 
 import com.security.learn.learn_jwt2.entity.RefreshToken;
 import com.security.learn.learn_jwt2.entity.User;
+import com.security.learn.learn_jwt2.exception.RefreshTokenException;
 import com.security.learn.learn_jwt2.repository.RefreshTokenRepository;
 import com.security.learn.learn_jwt2.repository.UserRepository;
 
@@ -30,7 +31,7 @@ public class RefreshTokenService {
         refreshTokenRepository.findByUser(user).ifPresent(refreshTokenRepository::delete);
 
         RefreshToken newRefreshToken = RefreshToken.builder()
-                .user(userRepository.findByEmail(username).orElseThrow())
+                .user(user)
                 .token(UUID.randomUUID().toString())
                 .expiryDate(Instant.now().plusMillis(refreshTokenExpiration))
                 .build();
@@ -44,7 +45,10 @@ public class RefreshTokenService {
     public RefreshToken verifyExpiration(RefreshToken token) {
         if (token.getExpiryDate().compareTo(Instant.now()) < 0) {
             refreshTokenRepository.delete(token);
-            throw new RuntimeException(token.getToken() + " Refresh token was expired. Please make a new signin request");
+            // throw new RuntimeException(token.getToken() + " Refresh token was expired. Please make a new signin request");
+
+            // Throw our new custom exception
+            throw new RefreshTokenException(token.getToken(), "Refresh token was expired. Please make a new sign-in request.");
         }
         return token;
     }
