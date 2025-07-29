@@ -10,6 +10,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import java.util.Date;
 
+// This will handle all the exceptions, travelling ( bubbling ) top if not handled properly
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

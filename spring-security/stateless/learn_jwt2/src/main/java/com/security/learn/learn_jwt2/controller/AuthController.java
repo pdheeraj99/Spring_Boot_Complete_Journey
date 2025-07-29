@@ -33,6 +33,8 @@ public class AuthController {
 
     @PostMapping("/refresh")
     public ResponseEntity<AuthResponse> refreshToken(@Valid @RequestBody RefreshTokenRequest request) {
+        // In one scenario it will throw exception
+        // But here also it will travel top.. Now comes actual thing. @RestControllerAdvice will handle this
         return ResponseEntity.ok(authService.refreshToken(request));
     }
 

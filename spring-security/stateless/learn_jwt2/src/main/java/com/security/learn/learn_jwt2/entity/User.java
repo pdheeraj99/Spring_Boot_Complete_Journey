@@ -38,6 +38,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        // "ROLE_" => even though we didnt write this, Spring Security will add by default
         return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
     }
 

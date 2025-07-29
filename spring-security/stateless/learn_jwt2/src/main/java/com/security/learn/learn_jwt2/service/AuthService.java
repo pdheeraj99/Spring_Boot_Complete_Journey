@@ -70,6 +70,7 @@ public class AuthService {
                 .orElseThrow(() -> new RefreshTokenException(request.getToken(), "Refresh token not found!"));
 
         // 2. Verify if the old token has expired
+        // As the exception is not handled here also it will travel top -----
         refreshTokenService.verifyExpiration(oldRefreshToken);
 
         // 3. Get the user associated with the token

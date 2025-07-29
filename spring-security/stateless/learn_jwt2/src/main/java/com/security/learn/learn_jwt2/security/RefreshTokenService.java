@@ -47,6 +47,8 @@ public class RefreshTokenService {
         if (token.getExpiryDate().compareTo(Instant.now()) < 0) {
             // We will no longer delete the token here. We just throw the exception.
             // refreshTokenRepository.delete(token);
+
+            // This exception will travel top
             throw new RefreshTokenException(token.getToken(), "Refresh token was expired. Please make a new sign-in request.");
         }
     }
