@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class RateLimitService {
     private final Map<String, Bucket> buckets = new ConcurrentHashMap<>();
 
+    // Each client (key)—typically an IP address or any unique identifier—gets its own Bucket object
     public boolean tryConsume(String key) {
         return buckets
                 .computeIfAbsent(key, this::newBucket)

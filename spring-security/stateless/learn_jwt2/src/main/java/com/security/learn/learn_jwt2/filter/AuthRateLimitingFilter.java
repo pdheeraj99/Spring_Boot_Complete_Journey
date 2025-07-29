@@ -27,8 +27,10 @@ public class AuthRateLimitingFilter extends OncePerRequestFilter {
                                     FilterChain chain)
             throws ServletException, IOException {
         if (req.getRequestURI().startsWith("/api/auth/")) {
-            String clientKey = req.getRemoteAddr();    // or req.getHeader("X-Forwarded-For")
+            String clientKey = req.getRemoteAddr();    // it gets the user's IP address.
+            System.out.println("Client Key is :::"+ clientKey + "Limiter is :::" + limiter); // 0:0:0:0:0:0:0:1
             if (!limiter.tryConsume(clientKey)) {
+                System.out.println("Client Key is :::"+ clientKey);
                 res.setStatus(HttpStatus.TOO_MANY_REQUESTS.value());
                 res.getWriter().write("Too many requests – try again later");
                 return;

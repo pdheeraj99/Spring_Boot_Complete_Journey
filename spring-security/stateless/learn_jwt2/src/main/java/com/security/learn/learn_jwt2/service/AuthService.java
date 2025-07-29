@@ -43,6 +43,7 @@ public class AuthService {
     // --- ADD THIS NEW METHOD ---
     public AuthResponse login(LoginRequest request) {
         // First, we authenticate the user. If credentials are wrong, it will throw an exception.
+        // Take these credentials, run them through the full security verification process, and tell me if this user is legitimate or not.
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
