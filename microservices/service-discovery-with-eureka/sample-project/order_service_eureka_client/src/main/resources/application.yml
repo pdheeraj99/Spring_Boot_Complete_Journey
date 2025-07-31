@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: order-service # <-- Idi chala mukhyam! Ee peru tho ne Eureka lo register avutundi
+
+server:
+  port: 8081 # Ee service ki vere port assign cheddam
+
+eureka:
+  client:
+    service-url:
+      defaultzone: http://localhost:8761/eureka # Mana Eureka Server (phonebook) address
