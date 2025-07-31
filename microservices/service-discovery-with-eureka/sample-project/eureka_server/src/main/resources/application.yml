@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: eureka_server
+
+server:
+  port: 8761 # Eureka ki idi standard port
+
+eureka:
+  client:
+    # Ee rendu properties chala important
+    register-with-eureka: false # Nenu server ni, nannu nene register chesukonu
+    fetch-registry: false # Nenu server ni, naku vere evari deggara nunchi registry fetch cheskovalsina avasaram ledu
