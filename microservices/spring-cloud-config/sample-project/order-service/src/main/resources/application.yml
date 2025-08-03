@@ -1,0 +1,19 @@
+spring:
+  application:
+    # This name is very important. It tells the Config Server which file to look for.
+    # It should match the file name in Git (order-service.yml).
+    name: order-service
+
+  config:
+    # This single line tells our service to import its configuration
+    # from the Config Server running at localhost:8888
+    import: "configserver:http://localhost:8888"
+server:
+  port: 8081
+
+# Exposing the endpoint manually
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "refresh" # Only expose the 'refresh' endpoint

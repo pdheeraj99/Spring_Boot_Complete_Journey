@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # Tell the server where our Git repository is
+          uri: https://github.com/pdheeraj99/microservices-configs.git
+# The port where the config server will run
+server:
+  port: 8888
