@@ -1,3 +1,6 @@
+server:
+  port: 8888
+
 spring:
   application:
     name: config-server
@@ -5,8 +8,20 @@ spring:
     config:
       server:
         git:
-          # Tell the server where our Git repository is
           uri: https://github.com/pdheeraj99/microservices-configs.git
-# The port where the config server will run
-server:
-  port: 8888
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "busrefresh" # Expose all for now to be safe

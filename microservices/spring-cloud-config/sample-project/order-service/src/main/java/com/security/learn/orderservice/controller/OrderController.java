@@ -5,6 +5,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+// HIT IN TERMINAL : curl -X POST http://localhost:8081/actuator/refresh ( after changing configuration in GIT )
 @RestController
 // <-- The magic to enable refresh on this bean.Manam refresh endpoint hit chesinappudu kotha bean create avtundi
 // *** Also refresh endpoint ni manam manual ga expose cheyyali from actuators ***
