@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: payment-service
+
+  # MySQL Database Connection
+  datasource:
+    url: jdbc:mysql://localhost:3306/payment_db
+    username: root
+    password: 7!X0rPX0H^hQnM#h8%K%
+
+  # JPA Configurations
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  # RabbitMQ Connection
+  rabbitmq:
+    host: localhost

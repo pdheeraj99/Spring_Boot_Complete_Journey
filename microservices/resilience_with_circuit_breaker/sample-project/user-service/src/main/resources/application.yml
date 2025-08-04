@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: user-service
+server:
+  port: 8082
+
+# To show breaker status in the /actuator/health endpoint
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "health"
+
+# Rules for our circuit breaker
+resilience4j:
+  circuitbreaker:
+    instances:
+      orderServiceBreaker: # Custom name for our breaker
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 20s
+        permittedNumberOfCallsInHalfOpenState: 3
