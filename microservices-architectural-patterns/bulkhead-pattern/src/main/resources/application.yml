@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: bulkhead-pattern   # 🏷️ App name shown in logs & Actuator
+
+# ────────────────────────────────────────────────
+# 🎯  Resilience4j BULKHEAD SETTINGS
+# ────────────────────────────────────────────────
+resilience4j:
+
+  # 1️⃣ THREAD-POOL bulkhead (heavy, CPU-bound work)
+  thread-pool-bulkhead:     # different from spring thread pool. here the threads are completely in addition to current how many threads are available in tomcat server
+    metrics:
+      enabled: true          # 📊 Expose Micrometer/Actuator stats
+    instances:
+      reportService:         # 🗂️  Instance name ← must match @Bulkhead
+        max-thread-pool-size: 3    # 🚧 Max 3 threads total
+        core-thread-pool-size: 2   # 🛠️ 2 threads running by default
+        queue-capacity: 10          # ⏳ 10 extra requests may wait
+        keep-alive-duration: 20ms  # 💤 Spare threads die after idle
+
+  # 2️⃣ SEMAPHORE bulkhead (I/O or network calls)
+  bulkhead:                 # It uses spring thread pool only
+    metrics:
+      enabled: true          # 📊 Expose Micrometer/Actuator stats
+    instances:
+      apiService:            # 🗂️ Matches @Bulkhead in ApiService
+        max-concurrent-calls: 2   # 🚦 Only 2 calls allowed at once
+        max-wait-duration: 3s      # ⏲️  Third call waits ≤3 s then fails
+
+  # NEW RETRY SECTION
+  retry:
+    instances:
+      invoiceServiceRetry: # 🗂️ A custom name for our retry instance
+        maxAttempts: 3 # 🔄 Waiter will swipe the card a maximum of 3 times
+        waitDuration: 2s # ⏳ He will wait 2 seconds between each swipe
+        # 👇 This is a pro-level rule
+        retryExceptions:
+          - java.io.IOException # 💳 Only retry for temporary "Connection Errors"
+        ignoreExceptions:
+          - java.lang.IllegalArgumentException # 🚫 Never retry if the card number is fake
+
+  # NEW CIRCUIT BREAKER SECTION
+  circuitbreaker:
+    instances:
+      invoiceServiceCB: # 🗂️ A name for our Main Gate Guard
+        failureRateThreshold: 50 # If 50% of calls fail, the guard locks the gate
+        slidingWindowSize: 10 # The guard will check the last 10 attempts
+        waitDurationInOpenState: 30s # The gate will be locked for 30 seconds
+        permittedNumberOfCallsInHalfOpenState: 3 # After 30s, he'll let 3 people try
+
+# ────────────────────────────────────────────────
+# 🩺  SPRING-BOOT ACTUATOR (monitoring endpoints)
+# ────────────────────────────────────────────────
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,bulkheads,circuitbreakers
+        # 💡 Tip: use "*" only in local dev; never in prod
+  endpoint:
+    health:
+      show-details: always   # 🔍 /actuator/health shows component info
+    bulkheads:
+      enabled: true          # ✅ Actually register /actuator/bulkheads
+
+# ────────────────────────────────────────────────
+# 🐞  EXTRA LOGGING (optional)
+# ────────────────────────────────────────────────
+logging:
+  level:
+    io.github.resilience4j.bulkhead: TRACE  # ← Change to TRACE
+    root: INFO
+

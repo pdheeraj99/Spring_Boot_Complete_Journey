@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: threads-experiment
+server:
+  tomcat:
+    threads:
+      min-spare: 1     # Only 1 thread minimum
+      max: 1          # Maximum 1 thread only!
+    accept-count: 1   # Only 1 request queue
+    max-connections: 1
